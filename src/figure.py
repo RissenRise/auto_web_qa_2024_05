@@ -20,4 +20,4 @@ class Figure(ABC):
     def add_area(self, other_figure):
         if not isinstance(other_figure, Figure):
             raise ValueError("Input must be a geometric figure")
-        return self.get_area() + other_figure.get_area()
+        return self.get_area + other_figure.get_area
