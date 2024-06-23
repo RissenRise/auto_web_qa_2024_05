@@ -10,10 +10,13 @@ class Triangle(Figure, ABC):
             raise ValueError("Введенные числа не должны быть отрицательными")
         elif side_a + side_b <= side_c or side_a + side_c <= side_b or side_b + side_c <= side_a:
             raise ValueError("Сумма двух сторон треугольника должна быть больше третьей")
+        elif side_a is None or side_b is None or side_c is None:
+            raise TypeError("Нужно передать три стороны")
         self.side_a = side_a
         self.side_b = side_b
         self.side_c = side_c
         self.name = name
+
 
     @property
     def get_area(self):
@@ -24,12 +27,3 @@ class Triangle(Figure, ABC):
     def get_perimeter(self):
         return self.side_a + self.side_b + self.side_c
 
-    def add_area(self, other_figure):
-        if not isinstance(other_figure, Figure):
-            raise ValueError("Нужно передать фигуру")
-        return self.get_area() + other_figure.get_area()
-
-
-t = Triangle(10, 10, 15, "Triangle")
-print(t.get_perimeter)
-print(t.get_area)

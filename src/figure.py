@@ -17,6 +17,8 @@ class Figure(ABC):
     def get_perimeter(self):
         pass
 
+
+
     def add_area(self, other_figure):
         if not isinstance(other_figure, Figure):
             raise ValueError("Input must be a geometric figure")

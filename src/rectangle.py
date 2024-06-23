@@ -6,9 +6,19 @@ class Rectangle(Figure):
         super().__init__(name="Rectangle")
         if side_a <= 0 or side_b <= 0:
             raise ValueError("Введенные числа не должны быть отрицательными")
+        elif side_a is None or side_b is None:
+            raise ValueError("Нужно передать обе стороны")
+        elif not isinstance(side_a, (int, float)) or side_a <= 0:
+            raise ValueError("side_a must be a positive number")
+        elif not isinstance(side_b, (int, float)) or side_b <= 0:
+            raise ValueError("side_b must be a positive number")
+        elif not isinstance(name, str):
+            raise TypeError("name must be a string")
         self.side_a = side_a
         self.side_b = side_b
         self.name = name
+
+
 
     @property
     def get_area(self):
@@ -18,11 +28,9 @@ class Rectangle(Figure):
     def get_perimeter(self):
         return 2 * (self.side_a + self.side_b)
 
-    def add_area(self, other_figure):
-        if not isinstance(other_figure, Figure):
-            raise ValueError("Нужно передать фигуру")
-        return self.get_area() + other_figure.get_area()
-
-r = Rectangle(10, 20, "Rectangle")
-print(r.get_perimeter)
-print(r.get_area)
+        try:
+            r = Rectangle(3)
+        except ValueError as e:
+            print(f"Ошибка значения: {e}")
+        except TypeError as e:
+            print(f"Ошибка типа: {e}")

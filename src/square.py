@@ -7,6 +7,13 @@ class Square(Rectangle):
         super().__init__(side_a=side_a, side_b=side_a, name='Square')
         if side_a <= 0:
             raise ValueError("Введенные числа не должны быть отрицательными")
+        elif not isinstance(side_a, (int, float)):
+            raise ValueError("Введите число, а не строку")
+        elif side_a is None:
+            raise ValueError("Нужно передать значение стороны")
+        elif not isinstance(name, str):
+            raise TypeError("Нужно передать строку")
+
 
     @property
     def get_area(self):
@@ -15,14 +22,3 @@ class Square(Rectangle):
     @property
     def get_perimeter(self):
         return 4 * self.side_a
-
-    def add_area(self, other_figure):
-        if not isinstance(other_figure, Figure):
-            raise ValueError("Нужно передать фигуру")
-        return self.get_area + other_figure.get_area
-
-
-s = Square(10, name='Square')
-print(s.get_perimeter)
-print(s.get_area)
-print(s.add_area(Rectangle(side_a=5, side_b=5, name='Square')))
