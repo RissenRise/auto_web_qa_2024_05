@@ -17,7 +17,6 @@ class Triangle(Figure, ABC):
         self.side_c = side_c
         self.name = name
 
-
     @property
     def get_area(self):
         s = (self.side_a + self.side_b + self.side_c) / 2

@@ -22,7 +22,7 @@ def test_triangle_area_with_known_sides_negative():
         t = Triangle(a, b, c, "Triangle")
         s = (a + b + c) / 2  # полупериметр
         expected_area = math.sqrt(s * (s - a) * (s - b) * (s - c))
-        assert abs(t.get_area - expected_area) < 1e-9  # очень маленький допуск
+        assert abs(t.get_area - expected_area) < 1e-9  # очень маленький допуск расхождения итога
 
 
 def test_triangle_creation_with_one_missing_side():
