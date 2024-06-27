@@ -9,8 +9,8 @@ def test_square_creation_with_positive_side():
 
 
 def test_square_get_area():
-        s = Square(5, "Square")
-        assert s.get_area == 25
+    s = Square(5, "Square")
+    assert s.get_area == 25
 
 
 def test_square_perimeter():
